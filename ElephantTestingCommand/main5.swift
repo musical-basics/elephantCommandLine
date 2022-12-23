@@ -23,93 +23,9 @@ dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss Z"
 let timeZone = TimeZone.current
 //print(timeZone)
 
-
-let myDate = Date()
-
-
 let startDate = DateComponents(calendar: Calendar.current, year: 2022, month: 9, day: 1)
-print(type(of: startDate.date))
-let calendar = Calendar.current
-
-let date0 = DateComponents(calendar: Calendar.current, year: 2022, month: 9, day: 1)
-//print(date1)
-let date1 = calendar.date(byAdding: .day, value: -1, to: Date())
-let date2 = calendar.date(byAdding: .day, value: -2, to: Date())
-let date3 = calendar.date(byAdding: .day, value: -3, to: Date())
-let date4 = calendar.date(byAdding: .day, value: -4, to: Date())
-
-let newVar = Calendar.current.isDateInToday(date4!)
-print(newVar)
-
-let savedItems =
-[
-    Item(title: "21 Item", timeDone: date2!, project: "None", uniqueNum: 21, status: "Inact"),
-    Item(title: "22 Item", timeDone: date1!, project: "None", uniqueNum: 22, status: "Inact"),
-    Item(title: "23 Item", timeDone: date1!, project: "None", uniqueNum: 23, status: "Inact"),
-    Item(title: "24 Item", timeDone: date1!, project: "None", uniqueNum: 24, status: "Inact"),
-    Item(title: "25 Item", timeDone: date2!, project: "None", uniqueNum: 25, status: "Inact"),
-    Item(title: "26 Item", timeDone: date2!, project: "None", uniqueNum: 26, status: "Inact"),
-    Item(title: "27 Item", timeDone: date2!, project: "None", uniqueNum: 27, status: "Inact"),
-    Item(title: "28 Item", timeDone: date3!, project: "None", uniqueNum: 28, status: "Inact"),
-    Item(title: "29 Item", timeDone: date3!, project: "None", uniqueNum: 29, status: "Inact"),
-    Item(title: "30 Item", timeDone: date4!, project: "None", uniqueNum: 29, status: "Inact")
-    
-]
-
-let xvar = (2+3+4)/3
-print(xvar)
-
-var oneArray: [Int] = []
-
-var limitCounter = 0
-
-for randItem in savedItems {
-    if limitCounter < 30 {
-        let components = calendar.dateComponents([.day], from: randItem.timeDone)
-        oneArray.append(components.day!)
-        limitCounter += 1
-    }
-    
-}
-
-print(oneArray)
-let mappedItems = oneArray.map { ($0, 1)}
-print(mappedItems)
-let counts = Dictionary(mappedItems, uniquingKeysWith: +)
-print(counts)
-
-var numerator = 0
-var denominator = 0
-
-var averageRate: Double = 0
-
-for (day, itemsDone) in counts {
-    if itemsDone > 1 {
-        denominator += 1
-        numerator = numerator + itemsDone
-    }
-}
-
-if denominator == 0 {
-    averageRate = 10
-} else {
-    averageRate = Double(numerator)/Double(denominator)
-}
-
-if averageRate < 6 {
-    averageRate = 6
-}
-
-print(averageRate)
-
-
-
-
-
-
-
-
-//let now =
+//print(type(of: startDate.date))
+//let now = DateComponents
 //print(now.date)
 //print(model.activeArray[0].timeDone)
 
@@ -144,7 +60,7 @@ var currentDeadline = Date()
 //}
 let currentDeadline2 = Calendar.current.date(byAdding: .day, value: 6, to: Date())
 let insertMe = Project(name: "Terrible", completed: false, priority: 4, cycle: false, deadline: currentDeadline2)
-//model.projectArray.append(insertMe)
+model.projectArray.append(insertMe)
 
 //model.insertProject(deadline: currentDeadline2!, proj: insertMe)
 
@@ -353,10 +269,10 @@ let refProject = "Piano"
 //}
 
 let anItem = model.activeArray[2]
-//model.deleteAndQuicken(chosenItem: anItem)
+model.deleteAndQuicken(chosenItem: anItem)
 
 
-//print(model.activeArray)
+print(model.activeArray)
 
 
 
@@ -455,13 +371,7 @@ let anItem = model.activeArray[2]
 //}
 
 let tempNum = model.activeArray[0].uniqueNum
-//model.completeItem(uniqueNumba: tempNum)
-
-
-
-
-
-
+model.completeItem(uniqueNumba: tempNum)
 
 
 let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
